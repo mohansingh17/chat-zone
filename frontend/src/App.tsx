@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+const API = import.meta.env.VITE_API_URL;
 
 function App() {
   const [message, setMessage] = useState("");
@@ -6,7 +7,7 @@ function App() {
   useEffect(() => {
     const checkBackend = async () => {
       try {
-        const res = await fetch("http://localhost:4000");
+        const res = await fetch(API);
         const data = await res.json();
         setMessage(data.message);
       } catch (err) {
